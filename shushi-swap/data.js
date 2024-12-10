@@ -42,10 +42,6 @@ export const getTrendingData = async (chainId) => {
     console.log(error);
   });
   return response?.data;
-  // .request(config)
-  // .then((response) => {
-  //   console.log(JSON.stringify(response.data));
-  // })
 };
 
 export const getSwapTokenData = async (
@@ -61,13 +57,9 @@ export const getSwapTokenData = async (
     headers: {},
   };
 
-  console.log({ tokenInAddress, tokenOutAddress, amountInWei, toAddress });
-
   const response = await axios.request(config).catch((error) => {
     console.log(error);
   });
-
-  console.log({ response });
 
   return response?.data;
 };

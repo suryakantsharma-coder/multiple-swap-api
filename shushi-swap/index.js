@@ -11,7 +11,6 @@ app.use(bodyParser.json());
 const trendingTokens = async (req, res) => {
   try {
     const { chainId } = req.query;
-    console.log({ chainId });
     const data = await getTrendingData(chainId || 1);
     res.json(data);
   } catch (err) {
@@ -26,7 +25,6 @@ const getTransactionData = async (req, res) => {
   try {
     const { tokenInAddress, tokenOutAddress, amountInWei, toAddress } =
       req?.body;
-    console.log({ tokenInAddress, tokenOutAddress, amountInWei, toAddress });
     if (tokenInAddress && tokenOutAddress && amountInWei && toAddress) {
       const data = await getSwapTokenData(
         tokenInAddress,
@@ -42,7 +40,6 @@ const getTransactionData = async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err);
     res.json({
       error: JSON.stringify(err),
       code: 400,
